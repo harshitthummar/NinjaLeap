@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
     [Header ("Movement Config")]
     [SerializeField] private float JumpPower;
     [SerializeField] private float MovementSpeed;
-
+    [SerializeField] private LayerMask ground;
     private float HorizontalInput;
     private enum MovementState {idle,running,jumping,falling }
     
@@ -15,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
     //intialization
     private Rigidbody2D player;
     private Animator anim;
+    private BoxCollider2D boxCollider;
 
 
     // Start is called before the first frame update
@@ -22,6 +23,7 @@ public class PlayerMovement : MonoBehaviour
     {
         player = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        boxCollider = GetComponent<BoxCollider2D>();
     }
 
     // Update is called once per frame
@@ -36,7 +38,7 @@ public class PlayerMovement : MonoBehaviour
 
 
         //jump player
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Jump") && isGrounded())
         {
             Jump();
         }
@@ -83,5 +85,9 @@ public class PlayerMovement : MonoBehaviour
 
 
         anim.SetInteger("state",(int)state);
+    }
+    private bool isGrounded()
+    {
+      return  Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0f, Vector2.down, .1f, ground);
     }
 }

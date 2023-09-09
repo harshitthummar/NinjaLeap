@@ -267,7 +267,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playercam: {fileID: 1161502438}
-  AheadDistance: 0
+  AheadDistance: 2
+  CameraSpeed: 5
 --- !u!1 &624155269
 GameObject:
   m_ObjectHideFlags: 0
@@ -5901,6 +5902,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   JumpPower: 20
   MovementSpeed: 9
+  ground:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!95 &1161502442
 Animator:
   serializedVersion: 5
@@ -5935,7 +5939,7 @@ GameObject:
   - component: {fileID: 1305991589}
   - component: {fileID: 1305991588}
   - component: {fileID: 1305991587}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Terrain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
