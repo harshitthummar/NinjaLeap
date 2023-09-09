@@ -6,22 +6,26 @@ public class PlayerMovement : MonoBehaviour
 {
     [Header ("Movement Config")]
     [SerializeField] private float JumpPower;
-    
-    
+    [SerializeField] private float MovementSpeed;
+
+    private float HorizontalInput;
     //intialization
     private Rigidbody2D player;
 
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         player = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
+        HorizontalInput = Input.GetAxisRaw("Horizontal");
+        player.velocity=new Vector2(HorizontalInput * MovementSpeed,player.velocity.y);
+
+        if (Input.GetButtonDown("Jump"))
         {
             Jump();
         }
@@ -29,6 +33,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void Jump()
     {
-        player.velocity = new Vector3(0, transform.localScale.y * JumpPower, transform.localScale.z);
+        player.velocity = new Vector2(player.velocity.x,JumpPower);
     }
 }
