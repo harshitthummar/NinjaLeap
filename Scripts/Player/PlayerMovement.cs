@@ -25,7 +25,29 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
         HorizontalInput = Input.GetAxisRaw("Horizontal");
+        //turn player left or right
+        turnplayer();
 
+        //to move player
+        player.velocity=new Vector2(HorizontalInput * MovementSpeed,player.velocity.y);
+
+
+        //jump player
+        if (Input.GetButtonDown("Jump"))
+        {
+            Jump();
+        }
+    }
+
+    private void Jump()
+    {
+        player.velocity = new Vector2(player.velocity.x,JumpPower);
+        //for jump animation
+        anim.SetTrigger("Jump");
+    }
+
+    private void turnplayer()
+    {
         //to turn player left or right
         if (HorizontalInput > 0.01f)
         {
@@ -41,19 +63,5 @@ public class PlayerMovement : MonoBehaviour
         {
             anim.SetBool("Running", false);
         }
-        //to move player
-        player.velocity=new Vector2(HorizontalInput * MovementSpeed,player.velocity.y);
-
-
-        //jump player
-        if (Input.GetButtonDown("Jump"))
-        {
-            Jump();
-        }
-    }
-
-    private void Jump()
-    {
-        player.velocity = new Vector2(player.velocity.x,JumpPower);
     }
 }
