@@ -48,7 +48,7 @@ public class PlayerMovement : MonoBehaviour
     {
         player.velocity = new Vector2(player.velocity.x,JumpPower);
         //for jump animation
-        anim.SetTrigger("Jump");
+        //anim.SetTrigger("Jump");
     }
 
     private void turnandanimateplayer()
