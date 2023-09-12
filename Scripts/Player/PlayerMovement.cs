@@ -17,6 +17,8 @@ public class PlayerMovement : MonoBehaviour
     private Animator anim;
     private BoxCollider2D boxCollider;
 
+    [Header("Audio Effects")]
+    [SerializeField] private AudioSource JumpSound;
 
     // Start is called before the first frame update
     private void Start()
@@ -47,6 +49,7 @@ public class PlayerMovement : MonoBehaviour
     private void Jump()
     {
         player.velocity = new Vector2(player.velocity.x,JumpPower);
+        JumpSound.Play();
         //for jump animation
         //anim.SetTrigger("Jump");
     }
