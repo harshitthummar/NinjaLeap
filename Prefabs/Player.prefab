@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f13212a461a3add41b757a980dee471e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  JumpPower: 20
+  JumpPower: 21.5
   MovementSpeed: 9
   ground:
     serializedVersion: 2

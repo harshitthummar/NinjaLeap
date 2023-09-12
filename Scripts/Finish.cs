@@ -12,8 +12,12 @@ public class Finish : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        FinishSound.Play();
-        CompleteLevel();
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            FinishSound.Play();
+            CompleteLevel();
+        }
+        
     }
     private void CompleteLevel()
     {
