@@ -15,8 +15,10 @@ public class ItemCollector : MonoBehaviour
         {
             CollectSound.Play();
             Destroy(collision.gameObject);
-            Score++;
-            ScoreText.text = "Score: " + Score;
+            
+
+            ScoreText.text = ""+Score;
+            
         }
     }
 }
