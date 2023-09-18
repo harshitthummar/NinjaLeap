@@ -6,7 +6,7 @@ public class WayPointFollower : MonoBehaviour
 {
     
     [Header("Petroling Config")]
-    [SerializeField] private GameObject[] WayPoints;
+    [SerializeField] protected GameObject[] WayPoints;
     [SerializeField] private float Speed;
 
     private int currentwayindex = 0;
