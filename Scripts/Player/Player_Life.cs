@@ -16,14 +16,16 @@ public class Player_Life : MonoBehaviour
         anim = GetComponent<Animator>();
         player = GetComponent<Rigidbody2D>();
     }
-
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
+
         if (collision.gameObject.CompareTag("trap"))
         {
             die();
         }
     }
+   
+    
 
     private void die()
     {
@@ -38,4 +40,6 @@ public class Player_Life : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
+
+   
 }

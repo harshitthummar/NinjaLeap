@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 public class ItemCollector : MonoBehaviour
 {
-    private int Score=0;
+    private int score = 0;
 
     [SerializeField] private Text ScoreText;
 
@@ -15,9 +15,9 @@ public class ItemCollector : MonoBehaviour
         {
             CollectSound.Play();
             Destroy(collision.gameObject);
-            
+            score++;
 
-            ScoreText.text = ""+Score;
+            ScoreText.text = ""+score;
             
         }
     }
