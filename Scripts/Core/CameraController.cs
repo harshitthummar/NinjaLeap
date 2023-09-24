@@ -12,6 +12,8 @@ public class CameraController : MonoBehaviour
 
     private float LookAhead;
     // Update is called once per frame
+
+   
     private void Update()
     {
         transform.position = new Vector3(playercam.position.x /* * AheadDistance*/,playercam.position.y,transform.position.z);

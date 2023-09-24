@@ -8,4 +8,11 @@ public class EndMenu : MonoBehaviour
     {
         Application.Quit();
     }
+
+    public void BacttoMainmenu()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene(2);
+    }
+
+    //ALTER TABLE player DROP COLUMN score;
 }

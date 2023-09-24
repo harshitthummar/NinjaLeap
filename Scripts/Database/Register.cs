@@ -27,6 +27,9 @@ public class Register : MonoBehaviour
         {
             Debug.Log("User Created Successfully");
             UnityEngine.SceneManagement.SceneManager.LoadScene(2);
+            WWWForm scoreform = new WWWForm();
+            scoreform.AddField("user", user.text);
+            WWW firstwww = new WWW("http://localhost/NinjaLeap/firstscore.php", scoreform);
         }
         else
         {
